@@ -10,7 +10,7 @@
 .masks {
   float: left;
   position: relative;
-  background-color: #333;
+  background-color: $primary;
   width: 200px;
   height: 220px;
   margin-right: 30px;
@@ -29,6 +29,22 @@
     right: 0;
     color: $white;
     text-align: center;
+  }
+}
+
+.masks__bg {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &:after {
+    background-color: $white;
+    content: ' ';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    transition: 200ms linear;
   }
 }
 
@@ -77,7 +93,35 @@
 
 .masks--svg {
   img {
-    mask: url('../images/mask.svg');
+    mask-image: url('../images/mask.svg');
+    mask-position: 0px 0px;
+    mask-repeat: no-repeat;
+    mask-size: 200px 200px;
+  }
+}
+
+.masks--svg-hover {
+  .masks__bg {
+    background-image: url('../images/bg.png');
+    mask-image: url('../images/mask.svg');
+    mask-position: 0px 0px;
+    mask-repeat: no-repeat;
+    mask-size: 200px 200px;
+  }
+
+  &:hover {
+    .masks__bg:after {
+      background-color: transparent;
+    }
+  }
+}
+
+.masks--svg-element {
+  img {
+    mask-image: url(#masking);
+    mask-position: 0px 0px;
+    mask-repeat: no-repeat;
+    mask-size: 200px 200px;
   }
 }
 

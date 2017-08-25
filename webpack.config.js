@@ -50,6 +50,13 @@ module.exports = {
         }),
       },
       {
+          test: /\.svg$/,
+          use: {
+              loader: 'svg-url-loader',
+              options: {}
+          }
+      },
+      {
         test: /\.(jpg|png)$/,
         use: {
           loader: 'file-loader',
